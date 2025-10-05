@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>NASA Astronomy Picture of the Day</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: 20px auto; padding: 10px; }
+        img { max-width: 100%; height: auto; margin-top: 10px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>NASA Astronomy Picture of the Day</h1>
+
+    <!-- Form to select date -->
+    <form method="get" action="/">
+        <label for="date">Choose date (YYYY-MM-DD): </label>
+        <input type="date" id="date" name="date" value="{{ apod_data.date if apod_data.date else '' }}">
+        <button type="submit">Get Picture</button>
+    </form>
+
+    {% if apod_data.error %}
+        <p class="error">{{ apod_data.error }}</p>
+        <p class="error">{{ apod_data.details }}</p>
+    {% else %}
+        <h2>{{ apod_data.title }}</h2>
+        <p><strong>Date:</strong> {{ apod_data.date }}</p>
+
+        {% if apod_data.media_type == 'image' %}
+            <img src="{{ apod_data.url }}" alt="{{ apod_data.title }}">
+        {% elif apod_data.media_type == 'video' %}
+            <iframe width="560" height="315" src="{{ apod_data.url }}" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
+
+        <p>{{ apod_data.explanation }}</p>
+    {% endif %}
+</body>
+</html>
