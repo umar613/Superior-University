@@ -1,0 +1,135 @@
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #280a81, #aa2637);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Chat Container */
+.chat-container {
+    width: 420px;
+    max-width: 95%;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideIn 0.5s ease;
+}
+
+/* Header */
+.chat-header {
+    background: linear-gradient(135deg, #280a81, #aa2637);
+    padding: 18px;
+    color: #fff;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* Chatbox */
+.chatbox {
+    padding: 15px;
+    height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f0f4f8;
+}
+
+/* Messages */
+.message {
+    padding: 12px 18px;
+    border-radius: 25px;
+    max-width: 75%;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+    font-size: 0.95rem;
+    color: #fff;
+    word-wrap: break-word;
+}
+
+/* User Messages */
+.user {
+    background: linear-gradient(135deg, #40176b, #2575fc);
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Bot Messages */
+.bot {
+    background: linear-gradient(135deg, #14883a, #145448);
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Input Area */
+.chat-input-area {
+    display: flex;
+    padding: 12px;
+    border-top: 1px solid #ddd;
+    background: #fff;
+    gap: 10px;
+}
+
+#input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#input:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 8px rgba(37,117,252,0.5);
+}
+
+#send {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #2575fc;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#send:hover {
+    background: #6a11cb;
+    transform: scale(1.05);
+}
+
+/* Scrollbar */
+.chatbox::-webkit-scrollbar {
+    width: 6px;
+}
+.chatbox::-webkit-scrollbar-thumb {
+    background: #2575fc;
+    border-radius: 3px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0;}
+    to { transform: translateY(0); opacity: 1;}
+}
